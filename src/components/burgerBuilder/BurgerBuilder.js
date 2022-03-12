@@ -6,7 +6,6 @@ export default class BurgerBuilder extends Component {
     return (
       <div>
         <Burger />
-        <p>Burger</p>
       </div>
     );
   }
