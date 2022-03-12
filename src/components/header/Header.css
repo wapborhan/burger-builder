@@ -1,0 +1,12 @@
+.NavLink {
+  color: #fff !important;
+}
+
+.NavLink:hover {
+  color: wheat !important;
+}
+
+.logo {
+  height: 80px;
+  width: 100px;
+}
