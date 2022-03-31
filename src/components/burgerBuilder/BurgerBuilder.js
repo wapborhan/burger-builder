@@ -67,15 +67,11 @@ export default class BurgerBuilder extends Component {
       modalOpen: !this.state.modalOpen,
     });
   };
-
   handelCheckout = () => {
-    this.props.history.push("/checkout");
+    // this.props.history.push("/checkout");
+    window.location.replace("/checkout");
+    // history("/checkout");
   };
-
-  componentDidMount() {
-    console.log(this.props);
-  }
-
   render() {
     return (
       <Fragment>
