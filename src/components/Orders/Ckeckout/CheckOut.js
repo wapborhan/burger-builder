@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 
-const CheckOut = (props) => {
-  return <div>CheckOut</div>;
-};
-
-export default CheckOut;
+export default class CheckOut extends Component {
+  render() {
+    return <div>CheckOut</div>;
+  }
+}
