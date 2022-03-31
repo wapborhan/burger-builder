@@ -1,12 +1,24 @@
 .NavLink {
   color: #fff !important;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+a {
+  text-decoration: none;
 }
 
 .NavLink:hover {
   color: wheat !important;
+  text-decoration: none;
 }
 
 .logo {
   height: 80px;
   width: 100px;
+}
+
+.active {
+  text-shadow: 1px 1px grey;
+  color: wheat;
 }
