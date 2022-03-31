@@ -1,11 +1,12 @@
 .burger {
   width: 100%;
   margin: auto;
-  height: 350px;
+  /* height: 550px; */
   overflow-y: scroll;
   text-align: center;
   font-weight: 700;
   font-size: 1.2rem;
+  margin-top: 20px;
 }
 
 .burger::-webkit-scrollbar {
