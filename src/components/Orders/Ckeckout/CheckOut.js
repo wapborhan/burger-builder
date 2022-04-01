@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import { Button } from "reactstrap";
 import GoBack from "./GoBack";
 
+import { connect } from "react-redux";
+const mapStateToProps = (state) => {
+  return {
+    ingredients: state.ingredients,
+  };
+};
+
 class CheckOut extends Component {
   state = {
     values: {
