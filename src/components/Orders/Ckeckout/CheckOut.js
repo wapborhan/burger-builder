@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
 import GoBack from "./GoBack";
+import axios from "axios";
 
 import { connect } from "react-redux";
+
+import Spinner from "../../spinner/Spinner";
+
 const mapStateToProps = (state) => {
   return {
     ingredients: state.ingredients,
+    purchasable: state.purchasable,
+    totalPrice: state.totalPrice,
   };
 };
 
@@ -16,6 +22,7 @@ class CheckOut extends Component {
       phone: "",
       paymentType: "Cash on Delivery",
     },
+    isLoading: false,
   };
 
   goBack = () => {
@@ -33,13 +40,44 @@ class CheckOut extends Component {
   };
 
   submitHandler = () => {
-    console.log(this.state.values);
+    this.setState({ isLoading: true });
+    const order = {
+      ingredients: this.props.ingredients,
+      customer: this.state.values,
+      price: this.props.totalPrice,
+      orderTime: new Date(),
+    };
+
+    axios
+      .post(
+        "https://burger-builder-b6aa1-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json",
+        order
+      )
+      .then((res) => {
+        if (res.status === 200) {
+          this.setState({
+            isLoading: false,
+          });
+        } else {
+          this.setState({
+            isLoading: false,
+          });
+        }
+      })
+      .catch((err) => {
+        this.setState({
+          isLoading: false,
+        });
+      });
   };
 
   render() {
-    return (
-      <div className="mt-3">
-        <form className="border border-secondary shadow-1 rounded p-5">
+    let form = (
+      <div>
+        <h4 className="border border-secondary shadow-1 rounded p-3">
+          Payment : {this.props.totalPrice} BDT
+        </h4>
+        <form className="border border-secondary shadow-1 rounded p-4">
           <textarea
             name="deliveryAddress"
             id="deliveryAddress"
@@ -78,6 +116,7 @@ class CheckOut extends Component {
             color="success"
             className="ms-auto"
             onClick={this.submitHandler}
+            disabled={!this.props.purchasable}
           >
             Place Order
           </Button>
@@ -85,7 +124,10 @@ class CheckOut extends Component {
         </form>
       </div>
     );
+    return (
+      <div className="mt-3">{this.state.isLoading ? <Spinner /> : form}</div>
+    );
   }
 }
 
-export default CheckOut;
+export default connect(mapStateToProps)(CheckOut);
