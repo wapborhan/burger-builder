@@ -1,17 +1,22 @@
 import React, { Component } from "react";
-import { Button } from "reactstrap";
+import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
 import GoBack from "./GoBack";
 import axios from "axios";
-
 import { connect } from "react-redux";
-
 import Spinner from "../../spinner/Spinner";
+import { resetIngredients } from "../../../redux/actionCreators";
 
 const mapStateToProps = (state) => {
   return {
     ingredients: state.ingredients,
     purchasable: state.purchasable,
     totalPrice: state.totalPrice,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    resetIngredients: () => dispatch(resetIngredients()),
   };
 };
 
@@ -23,6 +28,8 @@ class CheckOut extends Component {
       paymentType: "Cash on Delivery",
     },
     isLoading: false,
+    isMOdalOpen: false,
+    modalMsg: "",
   };
 
   goBack = () => {
@@ -41,6 +48,7 @@ class CheckOut extends Component {
 
   submitHandler = () => {
     this.setState({ isLoading: true });
+
     const order = {
       ingredients: this.props.ingredients,
       customer: this.state.values,
@@ -57,16 +65,23 @@ class CheckOut extends Component {
         if (res.status === 200) {
           this.setState({
             isLoading: false,
+            isMOdalOpen: true,
+            modalMsg: "Order Placed Successfully!",
           });
+          this.props.resetIngredients();
         } else {
           this.setState({
             isLoading: false,
+            isMOdalOpen: true,
+            modalMsg: "Something Went Wrong Order Again",
           });
         }
       })
       .catch((err) => {
         this.setState({
           isLoading: false,
+          isMOdalOpen: true,
+          modalMsg: "Something Went Wrong Order Again",
         });
       });
   };
@@ -125,9 +140,19 @@ class CheckOut extends Component {
       </div>
     );
     return (
-      <div className="mt-3">{this.state.isLoading ? <Spinner /> : form}</div>
+      <div className="mt-3">
+        {this.state.isLoading ? <Spinner /> : form}
+        <Modal isOpen={this.state.isMOdalOpen}>
+          <ModalBody>
+            <p>{this.state.modalMsg}</p>
+          </ModalBody>
+          <ModalFooter>
+            <GoBack />
+          </ModalFooter>
+        </Modal>
+      </div>
     );
   }
 }
 
-export default connect(mapStateToProps)(CheckOut);
+export default connect(mapStateToProps, mapDispatchToProps)(CheckOut);
