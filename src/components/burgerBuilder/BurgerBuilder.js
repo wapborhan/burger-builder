@@ -9,6 +9,7 @@ import {
   removeIngredient,
   updatePurchasable,
 } from "../../redux/actionCreators";
+import ChekoutBTN from "./button/CheckoutBTN";
 
 const mapStateToProps = (state) => {
   return {
@@ -71,9 +72,7 @@ class BurgerBuilder extends Component {
             <h5>Total Price: {this.props.totalPrice.toFixed(2)} BDT</h5>
           </ModalBody>
           <ModalFooter>
-            <Button color="success" onClick={this.handelCheckout}>
-              Continue to Checkout
-            </Button>
+            <ChekoutBTN />
             <Button color="secondary" onClick={this.toggleModal}>
               Cancel
             </Button>
