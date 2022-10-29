@@ -54,7 +54,7 @@ class Orders extends Component {
     }
 
     return (
-      <div className="row ">
+      <div className="row">
         {this.props.orderLoading ? <Spinner /> : orders}
       </div>
     );
