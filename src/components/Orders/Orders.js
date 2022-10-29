@@ -31,26 +31,30 @@ class Orders extends Component {
     let orders = null;
     if (this.props.orderErr) {
       orders = (
-        <div class="alert alert-danger mt-5" role="alert">
+        <div className="alert alert-danger mt-5" role="alert">
           <strong>Hello User!</strong> Sorry Faild to Load Orders!
         </div>
       );
     } else {
       if (this.props.orders.lenght === 0) {
         orders = (
-          <div class="alert alert-danger mt-5" role="alert">
+          <div className="alert alert-danger mt-5" role="alert">
             <strong>Hello User!</strong> You have no Orders!
           </div>
         );
       } else {
         orders = this.props.orders.map((order) => {
-          return <Order order={order} key={order.id} />;
+          return (
+            <div className="col-md-4 col-sm-6">
+              <Order order={order} key={order.id} />
+            </div>
+          );
         });
       }
     }
 
     return (
-      <div className="d-flex flex-wrap">
+      <div className="row ">
         {this.props.orderLoading ? <Spinner /> : orders}
       </div>
     );

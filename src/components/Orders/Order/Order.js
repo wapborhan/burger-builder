@@ -14,10 +14,7 @@ const Order = (props) => {
   });
   return (
     <Fragment>
-      <div
-        className="border border-secondary m-3 shadow rounded p-3"
-        style={{ width: "25rem" }}
-      >
+      <div className="border border-secondary mt-4 shadow rounded p-3">
         <p>Order Number: {props.order.id}</p>
         <div>
           <h3>Customer Details</h3>
