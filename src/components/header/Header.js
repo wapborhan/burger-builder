@@ -35,6 +35,12 @@ const Header = () => {
                 About Us
               </NavLink>
             </NavItem>
+
+            <NavItem>
+              <NavLink to="/login" className="NavLink">
+                Login
+              </NavLink>
+            </NavItem>
           </Nav>
         </Navbar>
       </div>

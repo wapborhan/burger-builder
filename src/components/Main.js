@@ -16,6 +16,7 @@ const Main = (props) => {
         <Routes>
           <Route path="/" element={<BurgerBuilder />} />
           <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/login" element={<Auth />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/about" element={<About />} />
         </Routes>
