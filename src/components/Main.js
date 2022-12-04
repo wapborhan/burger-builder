@@ -4,6 +4,7 @@ import BurgerBuilder from "./burgerBuilder/BurgerBuilder";
 import Orders from "./Orders/Orders";
 import CheckOut from "./Orders/Ckeckout/CheckOut";
 import About from "./About/About";
+import Auth from "./auth/Auth";
 
 import { Routes, Route } from "react-router";
 
