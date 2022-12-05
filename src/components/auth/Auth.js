@@ -14,6 +14,19 @@ export default class Auth extends Component {
           onSubmit={(values) => {
             console.log(values);
           }}
+          validate={(values) => {
+            const errors = {};
+
+            if (!values.email) {
+              errors.email = "Requred";
+            } else if (
+              !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+                values.email
+              )
+            ) {
+              errors.email = "Invalid Email";
+            }
+          }}
         >
           {({ values, handleChange, handleSubmit }) => (
             <div className="mt-4">
@@ -43,7 +56,7 @@ export default class Auth extends Component {
                 />
                 <br />
                 <button type="submit" className="btn btn-success">
-                  Submit
+                  Login
                 </button>
               </form>
             </div>
