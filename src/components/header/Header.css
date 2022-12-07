@@ -17,7 +17,7 @@ a {
   height: 80px;
   width: 100px;
 }
-
+/* Active */
 .active {
   text-shadow: 1px 1px grey;
   color: wheat;
