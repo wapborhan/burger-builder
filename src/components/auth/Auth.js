@@ -16,7 +16,7 @@ export default class Auth extends Component {
           }}
           validate={(values) => {
             const errors = {};
-
+            // Email Validation
             if (!values.email) {
               errors.email = "Requred";
             } else if (
@@ -25,6 +25,12 @@ export default class Auth extends Component {
               )
             ) {
               errors.email = "Invalid Email";
+            }
+            // Password Validation
+            if (!values.password) {
+              errors.password = "Requred";
+            } else if (values.password.length < 6) {
+              errors.password = "Must be atleast 6 Characters";
             }
           }}
         >

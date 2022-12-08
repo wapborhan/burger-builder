@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
 const Order = (props) => {
-  console.log(props);
+  // console.log(props);
   const ingredients = props.order.ingredients.map((item) => {
     return (
       <span
