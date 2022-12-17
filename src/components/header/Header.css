@@ -14,11 +14,14 @@ a {
 }
 /*  */
 .logo {
-  height: 80px;
+  height: 60px;
   width: 100px;
 }
 /* Active */
 .active {
   text-shadow: 1px 1px grey;
   color: wheat;
+}.navbar {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
 }
