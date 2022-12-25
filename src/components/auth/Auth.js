@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Formik } from "formik";
+import "./auth.css";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 export default class Auth extends Component {
   state = {
@@ -82,44 +84,58 @@ export default class Auth extends Component {
 
                 <br />
                 <span className="text-danger">{errors.password}</span>
-
-                <input
-                  name="password"
-                  className="form-control"
-                  placeholder="Password"
-                  value={values.password}
-                  onChange={handleChange}
-                  type={
-                    this.state.showPassword === "password" ? "password" : "text"
-                  }
-                />
-                <span type="button" onClick={this.switchShowpasswordHandler}>
-                  {this.state.showPassword === "password" ? "S" : "H"}
-                </span>
+                <div className="pass">
+                  <input
+                    name="password"
+                    className="form-control"
+                    placeholder="Password"
+                    value={values.password}
+                    onChange={handleChange}
+                    type={
+                      this.state.showPassword === "password"
+                        ? "password"
+                        : "text"
+                    }
+                  />
+                  <span type="button" onClick={this.switchShowpasswordHandler}>
+                    {this.state.showPassword === "password" ? (
+                      <FaEye />
+                    ) : (
+                      <FaEyeSlash />
+                    )}
+                  </span>
+                </div>
+                <br />
                 {this.state.mode === "Sign Up" ? (
                   <div>
-                    <br />
                     <span className="text-danger">
                       {errors.passwordconfirm}
                     </span>
-                    <input
-                      name="passwordconfirm"
-                      className="form-control"
-                      placeholder="Confirm Password"
-                      value={values.passwordconfirm}
-                      onChange={handleChange}
-                      type={
-                        this.state.showPassword === "password"
-                          ? "password"
-                          : "text"
-                      }
-                    />
-                    <span
-                      type="button"
-                      onClick={this.switchShowpasswordHandler}
-                    >
-                      {this.state.showPassword === "password" ? "S" : "H"}
-                    </span>
+                    <div className="pass">
+                      {" "}
+                      <input
+                        name="passwordconfirm"
+                        className="form-control"
+                        placeholder="Confirm Password"
+                        value={values.passwordconfirm}
+                        onChange={handleChange}
+                        type={
+                          this.state.showPassword === "password"
+                            ? "password"
+                            : "text"
+                        }
+                      />
+                      <span
+                        type="button"
+                        onClick={this.switchShowpasswordHandler}
+                      >
+                        {this.state.showPassword === "password" ? (
+                          <FaEye />
+                        ) : (
+                          <FaEyeSlash />
+                        )}
+                      </span>
+                    </div>
                   </div>
                 ) : null}
 

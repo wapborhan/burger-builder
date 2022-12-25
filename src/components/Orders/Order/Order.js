@@ -14,19 +14,22 @@ const Order = (props) => {
   });
   return (
     <Fragment>
-      <div className="border border-secondary mt-4 shadow rounded p-3">
-        <p>Order Number: {props.order.id}</p>
-        <div>
-          <h3>Customer Details</h3>
-          <p>Order Time: {props.order.orderTime}</p>
-          <p>Phone: {props.order.customer.phone}</p>
-          <p>Payment Type: {props.order.customer.paymentType}</p>
-          <p>Delivery Address: {props.order.customer.deliveryAddress}</p>
+      <div className="card mt-3 mb-3 shadow">
+        <div className="card-header">Order Number: {props.order.id}</div>
+        <div className="card-body">
+          <div>
+            <h3>Customer Details</h3>
+            <p>Order Time: {props.order.orderTime}</p>
+            <p>Phone: {props.order.customer.phone}</p>
+            <p>Payment Type: {props.order.customer.paymentType}</p>
+            <p>Delivery Address: {props.order.customer.deliveryAddress}</p>
+          </div>
+          <hr />
+          {ingredients}
         </div>
-        <hr />
-        {ingredients}
-        <hr />
-        <p>Total Price: {props.order.price} BDT</p>
+        <div className="card-footer">
+          <h5>Total Price: {props.order.price} BDT</h5>
+        </div>
       </div>
     </Fragment>
   );
