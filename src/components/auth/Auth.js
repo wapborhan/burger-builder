@@ -1,9 +1,17 @@
 import React, { Component } from "react";
 import { Formik } from "formik";
+import { auth } from "../../redux/authActionCreators";
+import { connect } from "react-redux";
 import "./auth.css";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 
-export default class Auth extends Component {
+const mapDispatchToProps = (dispatch) => {
+  return {
+    auth: (email, password) => dispatch(auth(email, password)),
+  };
+};
+
+class Auth extends Component {
   state = {
     mode: "Sign Up",
     showPassword: "password",
@@ -29,7 +37,7 @@ export default class Auth extends Component {
             passwordconfirm: "",
           }}
           onSubmit={(values) => {
-            console.log(values);
+            this.props.auth(values.email, values.passwordconfirm);
           }}
           validate={(values) => {
             const errors = {};
@@ -151,3 +159,4 @@ export default class Auth extends Component {
     );
   }
 }
+export default connect(null, mapDispatchToProps)(Auth);

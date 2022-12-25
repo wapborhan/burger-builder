@@ -6,3 +6,8 @@ export const RESET_INGREDIENT = "RESET_INGREDIENT";
 
 export const LOAD_ORDERS = "LOAD_ORDERS";
 export const ORDER_LOAD_FAILD = "ORDER_LOAD_FAILD";
+
+export const AUTH_SUCCESS = "AUTH_SUCCESS";
+export const AUTH_FAILED = "AUTH_FAILED";
+export const AUTH_LOADING = "AUTH_LOADING";
+export const AUTH_LOGOUT = "AUTH_LOGOUT";
