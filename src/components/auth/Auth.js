@@ -4,10 +4,17 @@ import { Formik } from "formik";
 export default class Auth extends Component {
   state = {
     mode: "Sign Up",
+    showPassword: "password",
   };
   switchModeHandler = () => {
     this.setState({
       mode: this.state.mode === "Sign Up" ? "Login" : "Sign Up",
+    });
+  };
+  switchShowpasswordHandler = () => {
+    this.setState({
+      showPassword:
+        this.state.showPassword === "password" ? "text" : "password",
     });
   };
   render() {
@@ -72,6 +79,7 @@ export default class Auth extends Component {
                   value={values.email}
                   onChange={handleChange}
                 />
+
                 <br />
                 <span className="text-danger">{errors.password}</span>
 
@@ -81,10 +89,15 @@ export default class Auth extends Component {
                   placeholder="Password"
                   value={values.password}
                   onChange={handleChange}
+                  type={
+                    this.state.showPassword === "password" ? "password" : "text"
+                  }
                 />
+                <span type="button" onClick={this.switchShowpasswordHandler}>
+                  {this.state.showPassword === "password" ? "S" : "H"}
+                </span>
                 {this.state.mode === "Sign Up" ? (
                   <div>
-                    {" "}
                     <br />
                     <span className="text-danger">
                       {errors.passwordconfirm}
@@ -95,7 +108,18 @@ export default class Auth extends Component {
                       placeholder="Confirm Password"
                       value={values.passwordconfirm}
                       onChange={handleChange}
+                      type={
+                        this.state.showPassword === "password"
+                          ? "password"
+                          : "text"
+                      }
                     />
+                    <span
+                      type="button"
+                      onClick={this.switchShowpasswordHandler}
+                    >
+                      {this.state.showPassword === "password" ? "S" : "H"}
+                    </span>
                   </div>
                 ) : null}
 
