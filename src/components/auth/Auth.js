@@ -72,7 +72,7 @@ class Auth extends Component {
           }}
         >
           {({ values, handleChange, handleSubmit, errors }) => (
-            <div className="mt-4 border rounded p-4">
+            <div className="mt-4 border rounded p-4 shadow">
               <button
                 className="btn mb-3 text-white w-100"
                 style={{ backgroundColor: "#D70F64" }}

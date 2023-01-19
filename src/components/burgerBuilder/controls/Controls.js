@@ -24,7 +24,7 @@ const BuildControl = (props) => {
 const Controls = (props) => {
   return (
     <div className="container ml-md-5 text-center">
-      <Card className="mt-4 mb-4 text-center">
+      <Card className="mt-4 mb-4 text-center shadow">
         <CardHeader className="bg-danger text-light">
           <h4>Add Ingredients</h4>
         </CardHeader>
