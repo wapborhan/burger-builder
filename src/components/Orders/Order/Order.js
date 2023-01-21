@@ -15,10 +15,13 @@ const Order = (props) => {
   return (
     <Fragment>
       <div className="card mt-3 mb-3 shadow">
-        <div className="card-header">Order Number: {props.order.id}</div>
+        <div className="card-header">
+          Order Number: <b>{props.order.id}</b>
+        </div>
         <div className="card-body">
           <div>
-            <h3>Customer Details</h3>
+            <h5>Customer Details</h5>
+            <hr />
             <p>Order Time: {props.order.orderTime}</p>
             <p>Phone: {props.order.customer.phone}</p>
             <p>Payment Type: {props.order.customer.paymentType}</p>
