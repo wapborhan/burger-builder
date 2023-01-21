@@ -78,7 +78,8 @@ class Auth extends Component {
                 style={{ backgroundColor: "#D70F64" }}
                 onClick={this.switchModeHandler}
               >
-                Switch to {this.state.mode === "Sign Up" ? "Login" : "Sign Up"}{" "}
+                Switch to
+                {this.state.mode === "Sign Up" ? "Login" : "Sign Up"}
               </button>
               <form onSubmit={handleSubmit}>
                 <span className="text-danger">{errors.email}</span>
