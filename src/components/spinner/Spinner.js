@@ -5,7 +5,6 @@ function Spinner() {
   return (
     <div className="container">
       <div className="w-100">
-        {" "}
         <div className="loader">Loading...</div>
       </div>
     </div>
