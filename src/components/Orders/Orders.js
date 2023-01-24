@@ -45,8 +45,8 @@ class Orders extends Component {
       } else {
         orders = this.props.orders.map((order) => {
           return (
-            <div className="col-md-4 col-sm-6">
-              <Order order={order} key={order.id} />
+            <div className="col-md-4 col-sm-6" key={order.id}>
+              <Order order={order} />
             </div>
           );
         });
