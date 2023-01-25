@@ -30,5 +30,7 @@ export const auth = (email, password, mode) => (dispatch) => {
   const API_KEY = "AIzaSyAzxqtXqpUXIb2ZV8D21XQD4Ri3YzkZWaU";
   axios.post(authUrl + API_KEY, authData).then((response) => {
     dispatch(authSuccess(response.data.idToken, response.data.localId));
+
+    console.log(response);
   });
 };

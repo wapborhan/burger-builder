@@ -29,7 +29,7 @@ class Auth extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="w-50 m-auto">
         <Formik
           initialValues={{
             email: "",
@@ -79,7 +79,7 @@ class Auth extends Component {
                 onClick={this.switchModeHandler}
               >
                 Switch to
-                {this.state.mode === "Sign Up" ? "Login" : "Sign Up"}
+                {this.state.mode === "Sign Up" ? " Login" : " Sign Up"}
               </button>
               <form onSubmit={handleSubmit}>
                 <span className="text-danger">{errors.email}</span>
@@ -149,7 +149,7 @@ class Auth extends Component {
                 ) : null}
 
                 <br />
-                <button type="submit" className="btn btn-success">
+                <button type="submit" className="btn btn-success w-100">
                   {this.state.mode === "Sign Up" ? "Sign Up" : "Login"}
                 </button>
               </form>
