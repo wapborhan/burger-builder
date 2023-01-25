@@ -32,9 +32,9 @@ class Auth extends Component {
       <div className="w-50 m-auto">
         <Formik
           initialValues={{
-            email: "",
-            password: "",
-            passwordconfirm: "",
+            email: "test@gmail.com",
+            password: "123456",
+            passwordconfirm: "123456",
           }}
           onSubmit={(values) => {
             this.props.auth(values.email, values.password, this.state.mode);
