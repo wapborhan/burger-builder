@@ -18,6 +18,13 @@ export const authLoading = (isLoading) => {
   };
 };
 
+export const authFaield = (errMsg) => {
+  return {
+    type: actionTypes.AUTH_FAILED,
+    payload: errMsg,
+  };
+};
+
 export const auth = (email, password, mode) => (dispatch) => {
   dispatch(authLoading(true));
   const authData = {
@@ -48,12 +55,10 @@ export const auth = (email, password, mode) => (dispatch) => {
       localStorage.setItem("expire", expirationtime);
 
       dispatch(authSuccess(response.data.idToken, response.data.localId));
-
-      console.log(response);
     })
     .catch((err) => {
       dispatch(authLoading(false));
-      console.log(err);
+      dispatch(authFaield(err.response.data.error.message));
     });
 };
 

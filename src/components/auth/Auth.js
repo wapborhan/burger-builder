@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Formik } from "formik";
+import { Alert } from "reactstrap";
 import { auth } from "../../redux/authActionCreators";
 import { connect } from "react-redux";
 import "./auth.css";
@@ -36,6 +37,15 @@ class Auth extends Component {
     });
   };
   render() {
+    let err = null;
+    if (this.props.authFailedMsg !== null) {
+      err = (
+        <Alert color="danger" className="mt-3">
+          {this.props.authFailedMsg}
+        </Alert>
+      );
+    }
+
     let form = null;
     if (this.props.authLoading) {
       form = <Spinner />;
@@ -170,7 +180,12 @@ class Auth extends Component {
       );
     }
 
-    return <div className="w-50 m-auto">{form}</div>;
+    return (
+      <div className="w-50 m-auto">
+        {err}
+        {form}
+      </div>
+    );
   }
 }
 export default connect(mapStatetoProps, mapDispatchToProps)(Auth);
