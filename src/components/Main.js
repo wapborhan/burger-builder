@@ -8,6 +8,7 @@ import Auth from "./auth/Auth";
 import { Routes, Route, Navigate } from "react-router";
 import { connect } from "react-redux";
 import { authCheck } from "../redux/authActionCreators";
+import Logout from "./auth/Logout";
 
 const mapStateToProps = (state) => {
   return {
@@ -42,6 +43,7 @@ class Main extends Component {
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/about" element={<About />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/login" element={<Navigate replace to="/" />} />
         </Routes>
       );

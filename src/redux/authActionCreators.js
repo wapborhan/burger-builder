@@ -42,15 +42,26 @@ export const auth = (email, password, mode) => (dispatch) => {
   });
 };
 
+export const logout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("userId");
+  localStorage.removeItem("expire");
+  return {
+    type: actionTypes.AUTH_LOGOUT,
+  };
+};
+
 export const authCheck = () => (dispatch) => {
   const token = localStorage.getItem("token");
 
   if (!token) {
     // Logout
+    dispatch(logout());
   } else {
     const expirationtime = new Date(localStorage.getItem("expire"));
     if (expirationtime < new Date()) {
       // Logoout
+      dispatch(logout());
     } else {
       const userId = localStorage.getItem("userId");
       dispatch(authSuccess(token, userId));

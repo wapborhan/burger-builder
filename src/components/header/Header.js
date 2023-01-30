@@ -46,6 +46,12 @@ const Header = (props) => {
             About Us
           </NavLink>
         </NavItem>
+
+        <NavItem>
+          <NavLink to="/logout" className="NavLink">
+            Log Out
+          </NavLink>
+        </NavItem>
       </Nav>
     );
   }

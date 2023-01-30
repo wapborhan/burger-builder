@@ -91,6 +91,12 @@ export const reducer = (state = INITIAL_STATE, action) => {
         token: action.payload.token,
         userId: action.payload.userId,
       };
+    case actionTypes.AUTH_LOGOUT:
+      return {
+        ...state,
+        token: null,
+        userId: null,
+      };
     default:
       return state;
   }
