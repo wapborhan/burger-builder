@@ -4,10 +4,18 @@ import { auth } from "../../redux/authActionCreators";
 import { connect } from "react-redux";
 import "./auth.css";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
+import Spinner from "../spinner/Spinner";
 
 const mapDispatchToProps = (dispatch) => {
   return {
     auth: (email, password, mode) => dispatch(auth(email, password, mode)),
+  };
+};
+
+const mapStatetoProps = (state) => {
+  return {
+    authLoading: state.authLoading,
+    authFailedMsg: state.authFailedMsg,
   };
 };
 
@@ -28,8 +36,11 @@ class Auth extends Component {
     });
   };
   render() {
-    return (
-      <div className="w-50 m-auto">
+    let form = null;
+    if (this.props.authLoading) {
+      form = <Spinner />;
+    } else {
+      form = (
         <Formik
           initialValues={{
             email: "test@gmail.com",
@@ -156,8 +167,10 @@ class Auth extends Component {
             </div>
           )}
         </Formik>
-      </div>
-    );
+      );
+    }
+
+    return <div className="w-50 m-auto">{form}</div>;
   }
 }
-export default connect(null, mapDispatchToProps)(Auth);
+export default connect(mapStatetoProps, mapDispatchToProps)(Auth);

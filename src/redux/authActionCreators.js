@@ -11,7 +11,15 @@ export const authSuccess = (token, userId) => {
   };
 };
 
+export const authLoading = (isLoading) => {
+  return {
+    type: actionTypes.AUTH_LOADING,
+    payload: isLoading,
+  };
+};
+
 export const auth = (email, password, mode) => (dispatch) => {
+  dispatch(authLoading(true));
   const authData = {
     email: email,
     password: password,
@@ -28,18 +36,25 @@ export const auth = (email, password, mode) => (dispatch) => {
   }
 
   const API_KEY = "AIzaSyAzxqtXqpUXIb2ZV8D21XQD4Ri3YzkZWaU";
-  axios.post(authUrl + API_KEY, authData).then((response) => {
-    localStorage.setItem("token", response.data.idToken);
-    localStorage.setItem("userId", response.data.localId);
-    const expirationtime = new Date(
-      new Date().getTime() + response.data.expiresIn * 1000
-    );
-    localStorage.setItem("expire", expirationtime);
+  axios
+    .post(authUrl + API_KEY, authData)
+    .then((response) => {
+      dispatch(authLoading(false));
+      localStorage.setItem("token", response.data.idToken);
+      localStorage.setItem("userId", response.data.localId);
+      const expirationtime = new Date(
+        new Date().getTime() + response.data.expiresIn * 1000
+      );
+      localStorage.setItem("expire", expirationtime);
 
-    dispatch(authSuccess(response.data.idToken, response.data.localId));
+      dispatch(authSuccess(response.data.idToken, response.data.localId));
 
-    console.log(response);
-  });
+      console.log(response);
+    })
+    .catch((err) => {
+      dispatch(authLoading(false));
+      console.log(err);
+    });
 };
 
 export const logout = () => {
