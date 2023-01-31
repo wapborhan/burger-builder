@@ -40,10 +40,13 @@ export const orderLoafFaild = () => {
   };
 };
 
-export const fetchOrders = () => (dispatch) => {
+export const fetchOrders = (token, userId) => (dispatch) => {
+  const quaryPrams = '&orderBy="userId"&equalTo="' + userId + '"';
   axios
     .get(
-      "https://burger-builder-b6aa1-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json"
+      "https://burger-builder-b6aa1-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json?auth=" +
+        token +
+        quaryPrams
     )
     .then((res) => {
       dispatch(loadOrdesr(res.data));

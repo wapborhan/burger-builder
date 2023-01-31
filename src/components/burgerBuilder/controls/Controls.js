@@ -2,15 +2,17 @@ import React from "react";
 import { Card, CardBody, CardFooter, CardHeader, Button } from "reactstrap";
 
 const controls = [
-  { type: "salad", label: "Salad" },
-  { type: "cheese", label: "Cheese" },
-  { type: "meat", label: "Meat" },
+  { type: "salad", label: "Salad", price: "20" },
+  { type: "cheese", label: "Cheese", price: "40" },
+  { type: "meat", label: "Meat", price: "90" },
 ];
 
 const BuildControl = (props) => {
   return (
     <div className="d-flex">
-      <div className="mx-auto ml-5 fw-bold">{props.label}</div>
+      <div className="mx-auto ml-5 fw-bold">{props.label} </div>
+      <div className="x">x</div>
+      <div className="mx-auto ml-5 fw-bold">{props.price} BDT</div>
       <button onClick={props.delete} className="btn btn-danger btn-sm m-1">
         Less
       </button>
@@ -35,6 +37,7 @@ const Controls = (props) => {
                 key={Math.random()}
                 label={item.label}
                 type={item.type}
+                price={item.price}
                 added={() => props.ingredientAdded(item.type)}
                 delete={() => props.ingredientRemove(item.type)}
               />

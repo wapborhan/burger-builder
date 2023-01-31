@@ -18,18 +18,20 @@ const mapStateToProps = (state) => {
     orders: state.orders,
     orderLoading: state.orderLoading,
     orderErr: state.orderErr,
+    token: state.token,
+    userId: state.userId,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchOrders: () => dispatch(fetchOrders()),
+    fetchOrders: (token, userId) => dispatch(fetchOrders(token, userId)),
   };
 };
 
 class Orders extends Component {
   componentDidMount() {
-    this.props.fetchOrders();
+    this.props.fetchOrders(this.props.token, this.props.userId);
   }
 
   componentDidUpdate() {
@@ -52,18 +54,14 @@ class Orders extends Component {
         );
       } else {
         orders = this.props.orders.map((order) => {
-          return (
-            <tbody key={order.id}>
-              <Order order={order} />
-            </tbody>
-          );
+          return <Order order={order} key={order.id} />;
         });
       }
     }
     // console.log(orders);
     return (
       <div className="row mt-5">
-        <Table hover>
+        <Table hover bordered>
           <thead>
             <tr>
               <th>Invoice</th>
@@ -72,7 +70,7 @@ class Orders extends Component {
               <th>Details</th>
             </tr>
           </thead>
-          {this.props.orderLoading ? <Spinner /> : orders}
+          <tbody>{this.props.orderLoading ? <Spinner /> : orders}</tbody>
         </Table>
       </div>
     );

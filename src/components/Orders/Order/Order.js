@@ -30,7 +30,7 @@ const Order = (props) => {
   return (
     <Fragment>
       <tr>
-        <th scope="row">{props.order.id}</th>
+        <th>{props.order.id}</th>
         <td>{props.order.customer.phone}</td>
         <td> {props.order.price} BDT</td>
         <td>
