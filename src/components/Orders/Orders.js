@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchOrders } from "../../redux/actionCreators";
 import Order from "./Order/Order";
+import {
+  Table,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "reactstrap";
 
 import Spinner from "../spinner/Spinner";
 
@@ -45,17 +53,27 @@ class Orders extends Component {
       } else {
         orders = this.props.orders.map((order) => {
           return (
-            <div className="col-md-4 col-sm-6" key={order.id}>
+            <tbody key={order.id}>
               <Order order={order} />
-            </div>
+            </tbody>
           );
         });
       }
     }
-
+    // console.log(orders);
     return (
-      <div className="row">
-        {this.props.orderLoading ? <Spinner /> : orders}
+      <div className="row mt-5">
+        <Table hover>
+          <thead>
+            <tr>
+              <th>Invoice</th>
+              <th>Mobile</th>
+              <th> Price</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          {this.props.orderLoading ? <Spinner /> : orders}
+        </Table>
       </div>
     );
   }
