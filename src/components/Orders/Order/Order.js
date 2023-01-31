@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import Ingredient from "../../burgerBuilder/Ingrediant/Ingredient";
 
 const Order = (props) => {
   // console.log(props);
@@ -28,7 +29,9 @@ const Order = (props) => {
             <p>Delivery Address: {props.order.customer.deliveryAddress}</p>
           </div>
           <hr />
+          {/* <Ingredient type="bread-top" /> */}
           {ingredients}
+          {/* <Ingredient type="bread-bottom" /> */}
         </div>
         <div className="card-footer">
           <h5>Total Price: {props.order.price} BDT</h5>
