@@ -2,14 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchOrders } from "../../redux/actionCreators";
 import Order from "./Order/Order";
-import {
-  Table,
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-} from "reactstrap";
+import { Table } from "reactstrap";
 
 import Spinner from "../spinner/Spinner";
 
@@ -61,17 +54,21 @@ class Orders extends Component {
     // console.log(orders);
     return (
       <div className="row mt-5">
-        <Table hover bordered>
-          <thead>
-            <tr>
-              <th>Invoice</th>
-              <th>Mobile</th>
-              <th> Price</th>
-              <th>Details</th>
-            </tr>
-          </thead>
-          <tbody>{this.props.orderLoading ? <Spinner /> : orders}</tbody>
-        </Table>
+        {this.props.orderLoading ? (
+          <Spinner />
+        ) : (
+          <Table hover bordered>
+            <thead>
+              <tr>
+                <th>Invoice</th>
+                <th>Mobile</th>
+                <th> Price</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>{orders}</tbody>
+          </Table>
+        )}
       </div>
     );
   }
