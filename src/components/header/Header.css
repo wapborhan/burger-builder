@@ -20,7 +20,7 @@ a {
 /* Active */
 ul.nav li a.active {
   text-shadow: 1px 1px grey;
-  color: wheat;
+  color: #fff;
   background: green;
 }
 .navbar {
