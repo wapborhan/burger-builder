@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+/newapp
+/newapp/burger-builder
+
 
 # testing
 /coverage
