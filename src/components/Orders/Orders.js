@@ -9,7 +9,7 @@ import Spinner from "../spinner/Spinner";
 const mapStateToProps = (state) => {
   return {
     orders: state.orders,
-    orderLoading: state.orderLoading,
+    orderLoading: state.orderLoading, 
     orderErr: state.orderErr,
     token: state.token,
     userId: state.userId,
