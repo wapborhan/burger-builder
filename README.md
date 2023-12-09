@@ -10,7 +10,7 @@
 User can create your own choose burger and order online also view his order on order menu.
 
 ###  Preview
-![enter image description here](https://c8.alamy.com/comp/2H2YHD7/dasd-concept-with-computer-motherboard-dasd-text-written-on-technology-motherboard-digital-technology-background-dasd-with-printed-circuit-board-and-2H2YHD7.jpg)
+![Screenshoot](https://raw.githubusercontent.com/wapborhan/burger-builder/main/src/assets/screencapture.png)
 
 ### Built with
 
