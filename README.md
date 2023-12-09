@@ -40,7 +40,7 @@ You can do this by running the following command from the project directory:
 ```
 
 ```bash
-   npm run dev
+   npm start
 ```
 
 Note: Need server site for run proper
