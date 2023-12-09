@@ -1,36 +1,54 @@
-# Burger Buikder
 
-## Getting Started with Create React App
+<h3 align="center">Burger Builder</h3>
 
-This project was bootstrapped with Reat.
+### Live Link
 
-## Available Scripts
+[https://burger-builder-b6aa1.web.app](https://burger-builder-b6aa1.web.app)
 
-In the project directory, you can run:
+### Description
 
-### `npm start`
+User can create your own choose burger and order online also view his order on order menu.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+###  Preview
+![enter image description here](https://c8.alamy.com/comp/2H2YHD7/dasd-concept-with-computer-motherboard-dasd-text-written-on-technology-motherboard-digital-technology-background-dasd-with-printed-circuit-board-and-2H2YHD7.jpg)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Built with
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- ReactJS
+- Redux
 
 
-### `npm run eject`
+### Installing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To run the Brand Shop project on your local machine, you need to have the following software installed:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Nodejs
+- Code Editor any (VS code recommended)
+
+#### Steps
+
+1. Clone the repository to your local machine:
+
+```bash
+  git clone https://github.com/wapborhan/burger-builder.git
+```
+
+You can do this by running the following command from the project directory:
+
+```bash
+   npm install
+```
+
+```bash
+   npm run dev
+```
+
+Note: Need server site for run proper
+
+### Features
+
+- **User authentication**: users can sign up, log in, and log out of the platform.
+- **Make Burger**: users can can make burger own choice.
+- **Order**: users can order online and payment cash on delivery and Baksh.
+- **Show Orders**: after order user can see his own orders.
+
